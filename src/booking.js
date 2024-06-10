@@ -28,17 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
 });
 
-$(document).ready(function(){
-    $('#datetimepicker').datepicker({
-        format: 'yyyy-mm-dd', // Format of the date
-        todayBtn: true, // Show "Today" button
-        clearBtn: true, // Show "Clear" button
-        autoclose: true, // Close the datepicker when a date is selected
-        startDate: 'today' // Set the minimum date to today
-    });
-});
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // Get the productid parameter from the URL
@@ -87,3 +76,36 @@ document.addEventListener('DOMContentLoaded', function() {
         element.innerHTML = productString;
     }
 });
+
+// Function to generate time slots
+function generateTimeSlots(startTime, endTime, interval) {
+    let timeSlots = [];
+    let currentTime = new Date(startTime);
+    const endTimeObj = new Date(endTime);
+
+    while (currentTime < endTimeObj) {
+        let slotStartTime = new Date(currentTime);
+        let slotEndTime = new Date(currentTime);
+        slotEndTime.setHours(slotEndTime.getHours() + interval);
+        let slot = `${slotStartTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} - ${slotEndTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+        timeSlots.push(slot);
+        currentTime.setHours(currentTime.getHours() + interval);
+    }
+    return timeSlots;
+}
+
+// Populate dropdown with time slots
+function populateTimeSlots() {
+    const timeSlotDropdown = document.getElementById("timeSlot");
+    const timeSlots = generateTimeSlots("2024-06-09T09:00:00", "2024-06-09T18:00:00", 1); // Example time range and interval
+
+    timeSlots.forEach(slot => {
+        let option = document.createElement("option");
+        option.text = slot;
+        option.value = slot;
+        timeSlotDropdown.add(option);
+    });
+}
+
+// Call the function to populate the dropdown
+populateTimeSlots();
