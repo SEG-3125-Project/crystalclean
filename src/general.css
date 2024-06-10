@@ -1,0 +1,77 @@
+body {
+    font-family: 'Newsreader', serif;
+}
+.navbar-custom {
+    background-color: #80ecff80;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 28px;
+    color: #549bd5;
+    transition: color 0.3s ease;
+}
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+.nav-link {
+    font-size: 18px;
+    color: #549bd5;
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #1e4bc7;
+}
+.nav-item:last-child .nav-link {
+    margin-right: 100px;
+}
+.btn-outline-custom {
+    color: #549bd5;
+    border-color: #4682B4;
+    margin-left: 17px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-outline-custom:hover {
+    background-color: #549bd5;
+    color: #fff;
+}
+
+/*  classes for the footer  */
+.footer {
+    background-color: #4682B4;
+    padding: 20px;
+    text-align: center;
+}
+.footer .social-icons {
+    margin-bottom: 20px;
+}
+.footer .social-icons a {
+    color: #F0F8FF;
+    margin: 0 12.5px;
+    font-size: 24px;
+}
+.footer .footer-lists {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.footer .footer-lists ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+.footer .footer-lists ul li a {
+    margin-bottom: 10px;
+    color: #F0F8FF;
+}
+
+/*  class for the horizontal line dividers  */
+.hr-divider {
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    background-color: #575757;
+}
