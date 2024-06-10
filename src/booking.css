@@ -52,7 +52,6 @@
 
 .calender-section,
 .time-section {
-    width: 50%;
     height: 600px;
     display: inline-block;
     vertical-align: top; /* Align these sections to the top */
@@ -61,10 +60,12 @@
     position: relative; /* To position the calendar in the center */
 }
 
-.calender-section-title {
-    display: inline-block;
-    margin-top: 10px;
-    text-align: center; /* Center the title text */
+.time-section {
+    width: 30%;
+}
+
+.calender-section {
+    width: 70%;
 }
 
 .calender-section-calender {
@@ -78,12 +79,20 @@
 
 .person-section {
     width: 100%;
+    height: 500px;
     border-top: 1px solid black; /* Add black border on top of the person-section */
     box-sizing: border-box; /* Include border and padding in the element's total width and height */
     display: inline-block;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative; /* To position the calendar in the center */
 }
 
 .section-title {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center; /* Center the title text */
     font-size: 58px;
     font-weight: bold;
     color: #549bd5;
@@ -95,4 +104,67 @@
     content: "";
     display: table;
     clear: both;
+}
+
+.time-section-timeselect {
+    display: inline-block;
+    position: absolute; /* Absolute positioning within the relative parent */
+    top: 50%; /* Position the top at 50% of the parent's height */
+    left: 50%; /* Position the left at 50% of the parent's width */
+    transform: translate(-50%, -50%); /* Offset the position to center the element */
+    width: 80%; /* Make it fill the parent container */
+    padding: 10px 0 6px 10px; /* Add padding for better look */
+    font-size: 24px; /* Bigger font size */
+    background-color: #80ecff80; /* Set background color */
+    color: #549bd5; /* Ensure text is readable */
+    border: 1px solid #549bd5; /* Optional: border to match the color scheme */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+}
+
+.time-section-timeselect:hover {
+    background-color: #549bd5;
+    color: #fff;
+}
+
+.time-section-timeselect option {
+    margin: 10px;
+    background-color: #fff; /* Set background color for dropdown options */
+    color: #000; /* Set text color for dropdown options */
+}
+
+.person-section-employeeselect {
+    display: inline-block;
+    margin: min(10%, 100px);
+    width: min(75%, 400px);
+    padding: 10px 0 6px 10px; /* Add padding for better look */
+    font-size: 24px; /* Bigger font size */
+    background-color: #80ecff80; /* Set background color */
+    color: #549bd5; /* Ensure text is readable */
+    border: 1px solid #549bd5; /* Optional: border to match the color scheme */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+}
+
+.person-section-employeeselect:hover {
+    background-color: #549bd5;
+    color: #fff;
+}
+
+.person-section-employeeselect option {
+    margin: 10px;
+    background-color: #fff; /* Set background color for dropdown options */
+    color: #000; /* Set text color for dropdown options */
+}
+
+.btn-book {
+    display: inline-block;
+    margin: min(10%, 30px);
+    padding: 10px 30px 6px 30px; /* Add padding for better look */
+    font-size: 24px; /* Bigger font size */
+    background-color: #80ecff80; /* Set background color */
+    color: #549bd5; /* Ensure text is readable */
+    border: 1px solid #549bd5; /* Optional: border to match the color scheme */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in the total width */
 }

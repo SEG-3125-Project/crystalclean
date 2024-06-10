@@ -26,10 +26,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Render the calendar
     calendar.render();
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    
+    // Populate time slots
+    var timeSlotDropdown = document.getElementById('timeSlot');
+    var timeSlots = [
+        '09:00-10:00', '10:00-11:00', '11:00-12:00', '12:00-13:00',
+        '13:00-14:00', '14:00-15:00', '15:00-16:00', '16:00-17:00',
+        '17:00-18:00', '18:00-19:00'
+    ];
+
+    timeSlots.forEach(function(slot) {
+        var option = document.createElement('option');
+        option.value = slot;
+        option.textContent = slot;
+        timeSlotDropdown.appendChild(option);
+    });
+
     // Get the productid parameter from the URL
     var productId = new URLSearchParams(window.location.search).get('productid');
 
@@ -75,37 +87,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if (element) {
         element.innerHTML = productString;
     }
+
 });
-
-// Function to generate time slots
-function generateTimeSlots(startTime, endTime, interval) {
-    let timeSlots = [];
-    let currentTime = new Date(startTime);
-    const endTimeObj = new Date(endTime);
-
-    while (currentTime < endTimeObj) {
-        let slotStartTime = new Date(currentTime);
-        let slotEndTime = new Date(currentTime);
-        slotEndTime.setHours(slotEndTime.getHours() + interval);
-        let slot = `${slotStartTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} - ${slotEndTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-        timeSlots.push(slot);
-        currentTime.setHours(currentTime.getHours() + interval);
-    }
-    return timeSlots;
-}
-
-// Populate dropdown with time slots
-function populateTimeSlots() {
-    const timeSlotDropdown = document.getElementById("timeSlot");
-    const timeSlots = generateTimeSlots("2024-06-09T09:00:00", "2024-06-09T18:00:00", 1); // Example time range and interval
-
-    timeSlots.forEach(slot => {
-        let option = document.createElement("option");
-        option.text = slot;
-        option.value = slot;
-        timeSlotDropdown.add(option);
-    });
-}
-
-// Call the function to populate the dropdown
-populateTimeSlots();
